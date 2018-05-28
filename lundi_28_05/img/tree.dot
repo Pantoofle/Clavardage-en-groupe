@@ -1,0 +1,8 @@
+graph{
+	"ABCD" -- "AB";
+	"ABCD" -- "CD";
+	"AB" -- "A";
+	"AB" -- "B";
+	"CD" -- "C";
+	"CD" -- "D";
+}
