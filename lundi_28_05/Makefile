@@ -12,7 +12,7 @@ TIKZ_SRC=$(shell find img/ -iname "*.tex")
 
 all: $(PDF_RES)
 
-%.pdf: %.tex %.blg $(IMG_CODE) $()
+%.pdf: %.tex %.blg $(IMG_CODE)
 	pdflatex $(basename $<).tex
 
 %.blg: %.bib
