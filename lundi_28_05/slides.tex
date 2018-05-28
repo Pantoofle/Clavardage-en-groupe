@@ -15,7 +15,7 @@
 \usepackage{tikz}
 \usetikzlibrary{snakes,arrows,shapes,calc}
 
-%%%%%%%%%% CUSTOM COMMANDS %%%%%%%%%%
+%%%%%%%%%% CUSTOM COMMANDS %%%%%%%%%%
 
 \newcommand{\okay}{\includegraphics[height=0.5cm]{img/check.png}}
 \newcommand{\nope}{\includegraphics[height=0.5cm]{img/cross.png}}
@@ -55,8 +55,8 @@
 	\tableofcontents
 \end{frame}
 
-\section{Group conversations ?}
-\begin{frame}{Properties of real life and messaging conversations}
+\section{Clavardage en groupe?}
+\begin{frame}{Propriétés du clavardage \emph{vs.} conversation en personne}
 	\begin{tabular}{cc}
   	\begin{tabular}{c}
     	\includegraphics[height=5cm]{img/group_chat_eve.png}
@@ -65,32 +65,32 @@
   	\begin{tabular}{c}
   		Authentification \\
   		\hline
-  		Participants Coherence \\
-  		Transcript Coherence \\
+  		Cohérence de participants \\
+  		Cohérence de transcription \\
   		\hline
-  		Message Repudiation \\
-  		Participation Repudiation \\
+  		Répudiation de message \\
+  		Répudiation de participation \\
   		\hline
-  		Dynamic Groups \\
+  		Groupes dynamiques \\
   		\hline
-  		Forward Secrecy \\
-  		Backward Secrecy \\
-  		Non-Transitivity of Messages \\
+  		Confidentialité persistente \\
+  		Confidentialité rétroactive \\
+  		Non-transitivité de paternité \\
   		\hline
   		Asynchrone
     \end{tabular}
 	\end{tabular}
 \end{frame}
 
-\begin{frame}{Why is it harder than regular peer-to-peer?}
+\begin{frame}{Plus difficile que la configuration 1-1. Pourquoi?}
 	\begin{tabular}{cc}
   	\begin{tabular}{c}
     	\includegraphics[height=5cm]{img/group_p2p.png}
   	\end{tabular}                   &
 
   	\begin{tabular}{c}
-  		Participants Coherence \\
-  		Transcript Coherence
+  		Cohérence de participants \\
+  		Cohérence de transcription
     \end{tabular}
 	\end{tabular}
 
@@ -98,27 +98,31 @@
 
 
 \section{mpOTR}
+<<<<<<< HEAD
 \begin{frame}{mpOTR – Ian Goldberg et al. 2009~\cite{mpotr}}
+=======
+\begin{frame}{mpOTR -- Ian Goldberg et al. 2009 \cite{mpotr}}
+>>>>>>> slides-28/05: traduction intégrale en français
 	\begin{block}{Initialisation}
 		\begin{itemize}
-			\item Agree on the list of participants
-			\item Group key exchange
-			\item Deduce the signature and cypher key
+			\item Concensus sur une liste de participants;
+      \item Échange de clef (EDC) en groupe;
+			\item Déduction des clefs de chiffrement et de signature.
 		\end{itemize}
   \end{block}
 
 	\begin{block}{Communication}
 		\begin{itemize}
-			\item Sign the message
-			\item Cypher with group key
-			\item Broadcast to all
+			\item Signature de messages;
+			\item Chiffrement de messages;
+      \item Envoie par canal de diffusion.
 		\end{itemize}
   \end{block}
 
-	\begin{block}{Shutdown}
+	\begin{block}{Fermeture}
 		\begin{itemize}
-			\item Agree on transcript
-			\item Delete keys
+			\item Concensus sur la transcription de la conversation;
+			\item Suppression des clefs.
 		\end{itemize}
   \end{block}
 \end{frame}
@@ -126,53 +130,53 @@
 \begin{frame}{mpOTR}
 	\center
   	\begin{tabular}{c|c}
-			                              & mpOTR \\
+			                              & mpOTR  \\
 			\hline
-  		Authentification              & \okay \\
+  		Authentification              & \okay  \\
   		\hline
-  		Participants Coherence        & \okay \\
-  		Transcript Coherence          & \okay \\
+  		Cohérence de participants     & \okay  \\
+  		Cohérence de transcription    & \okay  \\
   		\hline
-  		Message Repudiation           & \okay \\
-  		Participation Repudiation     & \okay \\
+  		Répudiation de message        & \okay  \\
+  		Répudiation de participation  & \okay  \\
   		\hline
-  		Dynamic Groups                & \nope \\
+  		Groupes dynamiques            & \nope  \\
   		\hline
-  		Forward Secrecy               & \nope \\
-  		Backward Secrecy              & \nope \\
-  		Non-Transitivity of Messages  & \nope \\
+  		Confidentialité persistente   & \nope  \\
+  		Confidentialité rétroactive   & \nope  \\
+  		Non-transitivité de paternité & \nope  \\
   		\hline
-  		Asynchrone                    & \sortof 
+  		Asynchrone                    & \sortof
     \end{tabular}
 \end{frame}
 
 
 \section{GOTR}
-\begin{frame}{GOTR – Liu et al~\cite{gotr}}
+\begin{frame}{GOTR -- Liu et al.\cite{gotr}}
 	\center
 	\includegraphics[height=6cm]{img/group_ring4.png}
 \end{frame}
 
-\begin{frame}{GOTR – Liu et al~\cite{gotr}}
+\begin{frame}{GOTR -- Liu et al.\cite{gotr}}
 	\center
 	\includegraphics[height=6cm]{img/group_ring5.png}
 \end{frame}
 
 \begin{frame}{GOTR}
 
-	\begin{block}{Update Key}
+	\begin{block}{Mise à jour de clef}
 		\begin{itemize}
-			\item Generate a new cypher and sign key
-			\item Individual : consistency check
-			\item Individual : send the new keys
-			\item Deduce the new group key
+      \item Génération des clefs (chiffrement et signature);
+      \item Validation de la cohérence (individuel);
+      \item Envoyer les nouvelles clefs (individuel);
+			\item Déduction de la nouvelle clef de groupe.
 		\end{itemize}
   \end{block}
 
-	\begin{block}{Join/Part}
+	\begin{block}{Joindre/Se retirer}
 		\begin{itemize}
-			\item Add to the circle
-			\item Call the UpdateKey protocol
+			\item Ajouter au cercle;
+			\item Appeler le protocole de mise à jour de clef.
 		\end{itemize}
   \end{block}
 \end{frame}
@@ -180,34 +184,34 @@
 \begin{frame}{GOTR}
 	\center
   	\begin{tabular}{c|cc}
-			                              & mpOTR   & GOTR\\
+			                              & mpOTR   & GOTR    \\
 			\hline
-  		Authentification              & \okay   & \okay \\
+  		Authentification              & \okay   & \okay   \\
   		\hline
-  		Participants Coherence        & \okay   & \okay \\
-  		Transcript Coherence          & \okay   & \okay \\
+  		Cohérence de participants     & \okay   & \okay   \\
+  		Cohérence de transcription    & \okay   & \okay   \\
   		\hline
-  		Message Repudiation           & \okay   & \okay \\
-  		Participation Repudiation     & \okay   & \okay \\
+  		Répudiation de message        & \okay   & \okay   \\
+  		Répudiation de participation  & \okay   & \okay   \\
   		\hline
-  		Dynamic Groups                & \nope   & \okay \\
+  		Groupes dynamiques            & \nope   & \okay   \\
   		\hline
-  		Forward Secrecy               & \nope   & \sortof \\
-  		Backward Secrecy              & \nope   & \sortof \\
-  		Non-Transitivity of Messages  & \nope   & \okay \\
+  		Confidentialité persistente   & \nope   & \sortof \\
+  		Confidentialité rétroactive   & \nope   & \sortof \\
+  		Non-transitivité de paternité & \nope   & \okay   \\
   		\hline
-  		Asynchrone                    & \sortof & \nope 
+  		Asynchrone                    & \sortof & \nope
     \end{tabular}
 \end{frame}
 
 \section{Signal}
-\begin{frame}{Technical point : Diffie-Hellman}
+\begin{frame}{Étape technique: Diffie-Hellman}
 	\center
-	\includegraphics[height=8cm]{img/stand-back-im-gonna-try-science.jpg} 
+	\includegraphics[height=8cm]{img/stand-back-im-gonna-try-science.jpg}
 \end{frame}
 
-\begin{frame}{Diffie-Hellman Key Exchange}
-	\begin{block}{The Group}
+\begin{frame}{EDC Diffie-Hellman}
+	\begin{block}{Groupe modulo}
 		\begin{itemize}
 			\item Cyclic Group $(G, \cdot)$ of prime order $p$
 			\item $\forall g \in G, g^p = e_G, g^{(p+1)} = g$
@@ -220,57 +224,63 @@
 	\begin{block}{Exchange}
 	$$
     \begin{array}{rl}
-      A :                           & x \la \Uu(\ZZ / q\ZZ) \\
-      B :                           & y \la \Uu(\ZZ / q\ZZ) \\
-      A \ra B :                     & g^x \\
-      B \ra A :                     & g^y \\
-      A :                           & S = (g^y)^x \\
-      B :                           & S = (g^x)^y \\
+      A :       & x \la \Uu(\ZZ / q\ZZ) \\
+      B :       & y \la \Uu(\ZZ / q\ZZ) \\
+      A \ra B : & g^x \\
+      B \ra A : & g^y \\
+      A :       & S = (g^y)^x \\
+      B :       & S = (g^x)^y \\
     \end{array}
    $$
 	\end{block}
 
 \end{frame}
 
-\begin{frame}{Peer-to-peeer 1.0 : Diffie-Hellman Ratchet}
-	\begin{block}{Initialisation}
-		Do a DH key exchange : common secret $S_0 = g^{xy}$
-	\end{block}
+<<<<<<< HEAD
+\begin{frame}{Cliquet asymétrique DH}
+  \only<1>{
+    \begin{block}{Initialisation}
+      Compléter un EDC Diffie-Hellman (EDCDH) avec le secret commun
+      $$S_0 = g^{xy}$$
+    \end{block}
+  }
 
+  \only<2>{
 	\begin{block}{Communication}
-	$$
+  	$$
       \begin{array}{rl}
-        A :                         & x' \la \Uu(\ZZ / q\ZZ) \\
-        A \ra B :                   & \set{M, g^{x'}}_{S_0} \\
-        A :                         & S_1 = (g^y)^{x'} \\
-        B :                         & S_1 = (g^{x'})^y \\
-        B :                         & y' \la \Uu(\ZZ / q \ZZ) \\
-        B \ra A :                   & \set{M', g^{y'}}_{S_1} \\
-        B :                         & S_2 = (g^{x'})^{y'} \\
-        A :                         & S_2 = (g^{y'})^{x'} \\
+        A :       & x' \la \Uu(\ZZ / q\ZZ) \\
+        A \ra B : & \set{M, g^{x'}}_{S_0} \\
+        A :       & S_1 = (g^y)^{x'} \\
+        B :       & S_1 = (g^{x'})^y \\
+        B :       & y' \la \Uu(\ZZ / q \ZZ) \\
+        B \ra A : & \set{M', g^{y'}}_{S_1} \\
+        B :       & S_2 = (g^{x'})^{y'} \\
+        A :       & S_2 = (g^{y'})^{x'} \\
       \end{array}
-      $$
+    $$
 	\end{block}
+  }
 \end{frame}
 
-\begin{frame}{Peer-to-peeer 2.0 : Diffie-Hellman Double Ratchet}
+\begin{frame}{Double cliquet}
 	\center
 	\begin{tabular}{rcl}
-		Alice                           &         & Bob \\
+		Alice                           &         & Bob                       \\
 		\hline
-    $(x_0, g^{x_0})$                & $\Llra$ & $(y_0, g^{y_0})$ \\
+    $(x_0, g^{x_0})$                & $\Llra$ & $(y_0, g^{y_0})$          \\
 		\hline
-		$S_0$                           &         & $S_0$ \\
+		$S_0$                           &         & $S_0$                     \\
 		\hline
-		$\set{M_0, g^{x_1}}_{S_0}$      & $\Lra$  & \\
+		$\set{M_0, g^{x_1}}_{S_0}$      & $\Lra$  &                           \\
 		\hline
-		$S_{0, 1} \la H(S_0)$           &         & \\
+		$S_{0, 1} \la H(S_0)$           &         &                           \\
 		\hline
-		$\set{M_1, g^{x_1}}_{S_{0, 1}}$ & $\Lra$  & \\
+		$\set{M_1, g^{x_1}}_{S_{0, 1}}$ & $\Lra$  &                           \\
 		\hline
-		$S_{0, 2} \la H(S_{0, 1})$      &         & \\
+		$S_{0, 2} \la H(S_{0, 1})$      &         &                           \\
 		\hline
-		$\set{M_2, g^{x_1}}_{S_{0, 2}}$ & $\Lra$  & \\
+		$\set{M_2, g^{x_1}}_{S_{0, 2}}$ & $\Lra$  &                           \\
 		\hline
 		                                &         & $S_1 \la (g^{x_1})^{y_0}$ \\
 		\hline
@@ -278,7 +288,7 @@
 	\end{tabular}
 \end{frame}
 
-\begin{frame}{Signal : Peer-to-peer DHDR}
+\begin{frame}{Signal: extension naïve en groupe (graphe complet)}
 	\center
 	\includegraphics[height=6cm]{img/group_p2p.png}
 \end{frame}
@@ -286,27 +296,27 @@
 \begin{frame}{Signal}
 	\center
   	\begin{tabular}{c|ccc}
-			                              & mpOTR   & GOTR    & Signal\\
+			                              & mpOTR   & GOTR    & Signal  \\
 			\hline
-  		Authentification              & \okay   & \okay   & \okay \\
+  		Authentification              & \okay   & \okay   & \okay   \\
   		\hline
-  		Participants Coherence        & \okay   & \okay   & \nope\\
-  		Transcript Coherence          & \okay   & \okay   & \nope \\
+  		Cohérence de participants     & \okay   & \okay   & \nope   \\
+  		Cohérence de transcription    & \okay   & \okay   & \nope   \\
   		\hline
-  		Message Repudiation           & \okay   & \okay   & \okay \\
-  		Participation Repudiation     & \okay   & \okay   & \okay \\
+  		Répudiation de message        & \okay   & \okay   & \okay   \\
+  		Répudiation de participation  & \okay   & \okay   & \okay   \\
   		\hline
-  		Dynamic Groups                & \nope   & \okay   & \okay \\
+  		Groupes dynamiques            & \nope   & \okay   & \okay   \\
   		\hline
-  		Forward Secrecy               & \nope   & \sortof & \sortof \\
-  		Backward Secrecy              & \nope   & \sortof & \okay \\
-  		Non-Transitivity of Messages  & \nope   & \okay   & \okay \\
+  		Confidentialité persistente   & \nope   & \sortof & \sortof \\
+  		Confidentialité rétroactive   & \nope   & \sortof & \okay   \\
+  		Non-transitivité de paternité & \nope   & \okay   & \okay   \\
   		\hline
   		Asynchrone                    & \sortof & \nope   & \okay
     \end{tabular}
 \end{frame}
 
-\section{Asynchronous Ratcheting Tree : ART}
+\section{ART: Asynchronous Ratcheting Tree}
 
 \begin{frame}{Asynchronous Ratcheting Tree : ART — Cohn Gordon et al.~\cite{art}}
 	\center
@@ -369,7 +379,7 @@
 \begin{frame}{ART}
 	\center
   \begin{tikzpicture}[]
-  	\path (0,0) node(sk0){$sk_0$} 
+  	\path (0,0) node(sk0){$sk_0$}
 			(2, 1) node (tk0){$tk_1$}
   		(2, 0) node[rectangle, draw](kdf1){$KDF$}
   		(4, 0) node(sk1){$sk_1$}
@@ -387,24 +397,24 @@
 
 \end{frame}
 
-\begin{frame}{ART : Send messages}
-	\begin{block}{Send}
+\begin{frame}{ART : envoie de messages}
+	\begin{block}{Envoie}
 		\begin{itemize}
-			\item Cypher with $sk$
-			\item Broadcast
-			\item Update Key
+			\item Chiffrement avec $sk$;
+      \item Envoie par canal de diffusion;
+			\item Mise à jour de la clef.
 		\end{itemize}
 	\end{block}
 
-	\begin{block}{Update Key}
+	\begin{block}{Mise à jour de clef}
 		\begin{itemize}
-			\item Generate new $x, g^x$
-			\item Broadcast the new public keys on the path
+			\item Générer une nouvelle paire $x, g^x$;
+      \item Diffuser les nouvelles clefs résultantes sur le chemin menant à sa feuille.
 		\end{itemize}
 	\end{block}
 \end{frame}
 
-\begin{frame}{ART : Update key}
+\begin{frame}{ART : Mise à jour de clef}
 	\center
   \begin{tikzpicture}[]
 		\path (3, 3) node[rectangle, draw](root) {$ g^{tk} $}
@@ -441,13 +451,13 @@
 	\end{tikzpicture}
 \end{frame}
 
-\begin{frame}{ART : Setup}
-	\begin{block}{Building the tree}
+\begin{frame}{ART : Configuration}
+	\begin{block}{Construction de l'arbre}
   	\begin{itemize}
-  		\item Get the signed public key of all participants
-			\item Broadcast the public key of all participants
-			\item Broadcast the tree topology
-			\item Start the conversation
+  		\item Retrouver la clef signée de tous les participants;
+			\item Diffuser les clefs publiques de chacun des membres aux autres;
+			\item Diffuser la topologie de l'arbre;
+			\item Commencer la conversation.
   	\end{itemize}
 	\end{block}
 \end{frame}
@@ -455,45 +465,45 @@
 \begin{frame}{ART}
 	\center
   	\begin{tabular}{c|cccc}
-			                              & mpOTR   & GOTR    & Signal  & ART\\
+			                              & mpOTR   & GOTR    & Signal  & ART   \\
 			\hline
   		Authentification              & \okay   & \okay   & \okay   & \nope \\
   		\hline
-  		Participants Coherence        & \okay   & \okay   & \nope   & \okay \\
-  		Transcript Coherence          & \okay   & \okay   & \nope   & \nope \\
+  		Cohérence de participants     & \okay   & \okay   & \nope   & \okay \\
+  		Cohérence de transcription    & \okay   & \okay   & \nope   & \nope \\
   		\hline
-  		Message Repudiation           & \okay   & \okay   & \okay   & \okay \\
-  		Participation Repudiation     & \okay   & \okay   & \okay   & \okay \\
+  		Répudiation de message        & \okay   & \okay   & \okay   & \okay \\
+  		Répudiation de participation  & \okay   & \okay   & \okay   & \okay \\
   		\hline
-  		Dynamic Groups                & \nope   & \okay   & \okay   & \okay\\
+  		Groupes dynamiques            & \nope   & \okay   & \okay   & \okay \\
   		\hline
-  		Forward Secrecy               & \nope   & \sortof & \sortof & \okay \\
-  		Backward Secrecy              & \nope   & \sortof & \okay   & \okay\\
-  		Non-Transitivity of Messages  & \nope   & \okay   & \okay   & \okay \\
+  		Confidentialité persistente   & \nope   & \sortof & \sortof & \okay \\
+  		Confidentialité rétroactive   & \nope   & \sortof & \okay   & \okay \\
+  		Non-transitivité de paternité & \nope   & \okay   & \okay   & \okay \\
   		\hline
-  		Asynchrone                    & \sortof & \nope   & \okay   & \okay 
+  		Asynchrone                    & \sortof & \nope   & \okay   & \okay
     \end{tabular}
 \end{frame}
 
-\section{And now ?}
-\begin{frame}{ART 2.0 : Authenticated}
-	\begin{block}{Main ideas}
+\section{Et maintenant?}
+\begin{frame}{ART 2.0 : avec authentification}
+	\begin{block}{Idée principale}
 		\begin{itemize}
-			\item Unique public keys
-			\item Dynamic keys ! 
-		\end{itemize}		
+			\item Clef publique unique;
+			\item Clefs dynamiques.
+		\end{itemize}
 	\end{block}
 	\pause
-	\begin{block}{Dynamic keys}
+	\begin{block}{Clefs dynamiques}
 		\begin{itemize}
 			\item $(x, g^x) \ra (x', g^{x'})$
-			\item $f, h$ st. $g^{f(x)} = h(g^x)$
+			\item $f, h$ sujet à $g^{f(x)} = h(g^x)$
 		\end{itemize}
 	\end{block}
 \end{frame}
 
-\begin{frame}{ART : Dynamic Diffie-Hellman}
-	\begin{block}{One solution}
+\begin{frame}{ART : Dérivation de clefs DH}
+	\begin{block}{Première tentative de solution}
 		\begin{itemize}
 			\item $f : x \ra 2x$
 			\item $h : y \ra y^2$
@@ -501,7 +511,7 @@
 		\end{itemize}
 	\end{block}
 	\pause
-	\begin{block}{Adapt the solution}
+	\begin{block}{Adaptation}
 		\begin{itemize}
 			\item $f : x \ra tk\cdot x$
 			\item $h : y \ra y^{tk}$
@@ -510,20 +520,19 @@
 	\end{block}
 \end{frame}
 
-\begin{frame}{ART : Not a perfect solution}
-	\begin{block}{Problems}
+\begin{frame}{ART : Pas parfait}
+	\begin{block}{Problèmes}
 		\begin{itemize}
-			\item The first step ?
-			\item Can't build a credible transcript
-			\item Break the crypto ?
+			\item Première étape?
+			\item Forgeabilité de transcription de conversation impossible;
+			\item Crypto faillible?
 		\end{itemize}
 	\end{block}
 	\center
-	Working on it.
+	Travail en cours.
 \end{frame}
-\section*{Thanks ! Questions ?}
+\section*{Merci ! Questions ?}
 
-\section*{Bibliography}
 \begin{frame}
   \begin{small}
 
