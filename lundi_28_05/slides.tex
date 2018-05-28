@@ -468,6 +468,52 @@
     \end{tabular}
 \end{frame}
 
+\section{And now ?}
+\begin{frame}{ART 2.0 : Authenticated}
+	\begin{block}{Main ideas}
+		\begin{itemize}
+			\item Unique public keys
+			\item Dynamic keys ! 
+		\end{itemize}		
+	\end{block}
+	\pause
+	\begin{block}{Dynamic keys}
+		\begin{itemize}
+			\item $(x, g^x) \ra (x', g^{x'})$
+			\item $f, h$ st. $g^{f(x)} = h(g^x)$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{ART : Dynamic Diffie-Hellman}
+	\begin{block}{One solution}
+		\begin{itemize}
+			\item $f : x \ra 2x$
+			\item $h : y \ra y^2$
+			\item $g^{2x} = (g^x)^2$
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Adapt the solution}
+		\begin{itemize}
+			\item $f : x \ra tk\cdot x$
+			\item $h : y \ra y^{tk}$
+			\item $g^{tk\cdot x} = (g^x)^{tk}$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{ART : Not a perfect solution}
+	\begin{block}{Problems}
+		\begin{itemize}
+			\item The first step ?
+			\item Can't build a credible transcript
+			\item Break the crypto ?
+		\end{itemize}
+	\end{block}
+	\center
+	Working on it.
+\end{frame}
 \section*{Thanks ! Questions ?}
 
 \section*{Bibliography}
