@@ -12,7 +12,10 @@ TIKZ_SRC=$(shell find img/ -iname "*.tex")
 
 all: $(PDF_RES)
 
-%.pdf: %.tex %.bib $(IMG_CODE) $()
+%.pdf: %.tex %.blg $(IMG_CODE) $()
+	pdflatex $(basename $<).tex
+
+%.blg: %.bib
 	pdflatex $(basename $<).tex
 	bibtex $(basename $<)
 	pdflatex $(basename $<).tex
@@ -20,7 +23,7 @@ all: $(PDF_RES)
 
 %.tex: %.dot
 	dot2tex --figonly -ftikz $< > $@
-	
+
 clean:
 	rm -rf *.aux \
   			 *.log \
