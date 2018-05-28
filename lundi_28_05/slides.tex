@@ -57,7 +57,7 @@
 	\begin{tabular}{cc}
   	\begin{tabular}{c}
     	\includegraphics[height=5cm]{img/group_chat_eve.png}
-  	\end{tabular} &
+  	\end{tabular}                   &
 
   	\begin{tabular}{c}
   		Authentification \\
@@ -83,7 +83,7 @@
 	\begin{tabular}{cc}
   	\begin{tabular}{c}
     	\includegraphics[height=5cm]{img/group_p2p.png}
-  	\end{tabular} &
+  	\end{tabular}                   &
 
   	\begin{tabular}{c}
   		Participants Coherence \\
@@ -123,23 +123,23 @@
 \begin{frame}{mpOTR}
 	\center
   	\begin{tabular}{c|c}
-			 & mpOTR \\
+			                              & mpOTR \\
 			\hline
-  		Authentification & \okay \\
+  		Authentification              & \okay \\
   		\hline
-  		Participants Coherence & \okay \\
-  		Transcript Coherence & \okay \\
+  		Participants Coherence        & \okay \\
+  		Transcript Coherence          & \okay \\
   		\hline
-  		Message Repudiation & \okay \\
-  		Participation Repudiation & \okay \\
+  		Message Repudiation           & \okay \\
+  		Participation Repudiation     & \okay \\
   		\hline
-  		Dynamic Groups & \nope \\
+  		Dynamic Groups                & \nope \\
   		\hline
-  		Forward Secrecy & \nope \\
-  		Backward Secrecy & \nope \\
-  		Non-Transitivity of Messages & \nope \\
+  		Forward Secrecy               & \nope \\
+  		Backward Secrecy              & \nope \\
+  		Non-Transitivity of Messages  & \nope \\
   		\hline
-  		Asynchrone & \sortof 
+  		Asynchrone                    & \sortof 
     \end{tabular}
 \end{frame}
 
@@ -177,23 +177,23 @@
 \begin{frame}{GOTR}
 	\center
   	\begin{tabular}{c|cc}
-			 & mpOTR & GOTR\\
+			                              & mpOTR   & GOTR\\
 			\hline
-  		Authentification & \okay & \okay \\
+  		Authentification              & \okay   & \okay \\
   		\hline
-  		Participants Coherence & \okay & \okay \\
-  		Transcript Coherence & \okay & \okay \\
+  		Participants Coherence        & \okay   & \okay \\
+  		Transcript Coherence          & \okay   & \okay \\
   		\hline
-  		Message Repudiation & \okay & \okay \\
-  		Participation Repudiation & \okay & \okay \\
+  		Message Repudiation           & \okay   & \okay \\
+  		Participation Repudiation     & \okay   & \okay \\
   		\hline
-  		Dynamic Groups & \nope & \okay \\
+  		Dynamic Groups                & \nope   & \okay \\
   		\hline
-  		Forward Secrecy & \nope & \sortof \\
-  		Backward Secrecy & \nope & \sortof \\
-  		Non-Transitivity of Messages & \nope & \okay \\
+  		Forward Secrecy               & \nope   & \sortof \\
+  		Backward Secrecy              & \nope   & \sortof \\
+  		Non-Transitivity of Messages  & \nope   & \okay \\
   		\hline
-  		Asynchrone & \sortof & \nope 
+  		Asynchrone                    & \sortof & \nope 
     \end{tabular}
 \end{frame}
 
@@ -217,12 +217,12 @@
 	\begin{block}{Exchange}
 	$$
     \begin{array}{rl}
-      A :& x \la \Uu(\ZZ / q\ZZ) \\
-      B :& y \la \Uu(\ZZ / q\ZZ) \\
-      A \ra B :& g^x \\
-      B \ra A :& g^y \\
-      A :& S = (g^y)^x \\
-      B :& S = (g^x)^y \\
+      A :                           & x \la \Uu(\ZZ / q\ZZ) \\
+      B :                           & y \la \Uu(\ZZ / q\ZZ) \\
+      A \ra B :                     & g^x \\
+      B \ra A :                     & g^y \\
+      A :                           & S = (g^y)^x \\
+      B :                           & S = (g^x)^y \\
     \end{array}
    $$
 	\end{block}
@@ -237,14 +237,14 @@
 	\begin{block}{Communication}
 	$$
       \begin{array}{rl}
-        A :& x' \la \Uu(\ZZ / q\ZZ) \\
-        A \ra B :& \set{M, g^{x'}}_{S_0} \\
-        A :& S_1 = (g^y)^{x'} \\
-        B :& S_1 = (g^{x'})^y \\
-        B :& y' \la \Uu(\ZZ / q \ZZ) \\
-        B \ra A :& \set{M', g^{y'}}_{S_1} \\
-        B :& S_2 = (g^{x'})^{y'} \\
-        A :& S_2 = (g^{y'})^{x'} \\
+        A :                         & x' \la \Uu(\ZZ / q\ZZ) \\
+        A \ra B :                   & \set{M, g^{x'}}_{S_0} \\
+        A :                         & S_1 = (g^y)^{x'} \\
+        B :                         & S_1 = (g^{x'})^y \\
+        B :                         & y' \la \Uu(\ZZ / q \ZZ) \\
+        B \ra A :                   & \set{M', g^{y'}}_{S_1} \\
+        B :                         & S_2 = (g^{x'})^{y'} \\
+        A :                         & S_2 = (g^{y'})^{x'} \\
       \end{array}
       $$
 	\end{block}
@@ -253,25 +253,25 @@
 \begin{frame}{Peer-to-peeer 2.0 : Diffie-Hellman Double Ratchet}
 	\center
 	\begin{tabular}{rcl}
-		Alice & & Bob \\
+		Alice                           &         & Bob \\
 		\hline
-    $(x_0, g^{x_0})$ & $\Llra$ & $(y_0, g^{y_0})$ \\
+    $(x_0, g^{x_0})$                & $\Llra$ & $(y_0, g^{y_0})$ \\
 		\hline
-		$S_0$ & & $S_0$ \\
+		$S_0$                           &         & $S_0$ \\
 		\hline
-		$\set{M_0, g^{x_1}}_{S_0}$ & $\Lra$ & \\
+		$\set{M_0, g^{x_1}}_{S_0}$      & $\Lra$  & \\
 		\hline
-		$S_{0, 1} \la H(S_0)$  & & \\
+		$S_{0, 1} \la H(S_0)$           &         & \\
 		\hline
-		$\set{M_1, g^{x_1}}_{S_{0, 1}}$ & $\Lra$ & \\
+		$\set{M_1, g^{x_1}}_{S_{0, 1}}$ & $\Lra$  & \\
 		\hline
-		$S_{0, 2} \la H(S_{0, 1})$  & & \\
+		$S_{0, 2} \la H(S_{0, 1})$      &         & \\
 		\hline
-		$\set{M_2, g^{x_1}}_{S_{0, 2}}$ & $\Lra$ & \\
+		$\set{M_2, g^{x_1}}_{S_{0, 2}}$ & $\Lra$  & \\
 		\hline
-		 & & $S_1 \la (g^{x_1})^{y_0}$ \\
+		                                &         & $S_1 \la (g^{x_1})^{y_0}$ \\
 		\hline
-		 & $\Lla$ & $\set{M_3, g^{y_1}}_{S_1}$
+		                                & $\Lla$  & $\set{M_3, g^{y_1}}_{S_1}$
 	\end{tabular}
 \end{frame}
 
@@ -283,23 +283,23 @@
 \begin{frame}{Signal}
 	\center
   	\begin{tabular}{c|ccc}
-			 & mpOTR & GOTR & Signal\\
+			                              & mpOTR   & GOTR    & Signal\\
 			\hline
-  		Authentification & \okay & \okay & \okay \\
+  		Authentification              & \okay   & \okay   & \okay \\
   		\hline
-  		Participants Coherence & \okay & \okay & \nope\\
-  		Transcript Coherence & \okay & \okay & \nope \\
+  		Participants Coherence        & \okay   & \okay   & \nope\\
+  		Transcript Coherence          & \okay   & \okay   & \nope \\
   		\hline
-  		Message Repudiation & \okay & \okay & \okay \\
-  		Participation Repudiation & \okay & \okay & \okay \\
+  		Message Repudiation           & \okay   & \okay   & \okay \\
+  		Participation Repudiation     & \okay   & \okay   & \okay \\
   		\hline
-  		Dynamic Groups & \nope & \okay & \okay \\
+  		Dynamic Groups                & \nope   & \okay   & \okay \\
   		\hline
-  		Forward Secrecy & \nope & \sortof & \sortof \\
-  		Backward Secrecy & \nope & \sortof & \okay \\
-  		Non-Transitivity of Messages & \nope & \okay & \okay \\
+  		Forward Secrecy               & \nope   & \sortof & \sortof \\
+  		Backward Secrecy              & \nope   & \sortof & \okay \\
+  		Non-Transitivity of Messages  & \nope   & \okay   & \okay \\
   		\hline
-  		Asynchrone & \sortof & \nope & \okay
+  		Asynchrone                    & \sortof & \nope   & \okay
     \end{tabular}
 \end{frame}
 
@@ -452,23 +452,23 @@
 \begin{frame}{ART}
 	\center
   	\begin{tabular}{c|cccc}
-			 & mpOTR & GOTR & Signal & ART\\
+			                              & mpOTR   & GOTR    & Signal  & ART\\
 			\hline
-  		Authentification & \okay & \okay & \okay & \nope \\
+  		Authentification              & \okay   & \okay   & \okay   & \nope \\
   		\hline
-  		Participants Coherence & \okay & \okay & \nope & \okay \\
-  		Transcript Coherence & \okay & \okay & \nope & \nope \\
+  		Participants Coherence        & \okay   & \okay   & \nope   & \okay \\
+  		Transcript Coherence          & \okay   & \okay   & \nope   & \nope \\
   		\hline
-  		Message Repudiation & \okay & \okay & \okay & \okay \\
-  		Participation Repudiation & \okay & \okay & \okay & \okay \\
+  		Message Repudiation           & \okay   & \okay   & \okay   & \okay \\
+  		Participation Repudiation     & \okay   & \okay   & \okay   & \okay \\
   		\hline
-  		Dynamic Groups & \nope & \okay & \okay & \okay\\
+  		Dynamic Groups                & \nope   & \okay   & \okay   & \okay\\
   		\hline
-  		Forward Secrecy & \nope & \sortof & \sortof & \okay \\
-  		Backward Secrecy & \nope & \sortof & \okay & \okay\\
-  		Non-Transitivity of Messages & \nope & \okay & \okay & \okay \\
+  		Forward Secrecy               & \nope   & \sortof & \sortof & \okay \\
+  		Backward Secrecy              & \nope   & \sortof & \okay   & \okay\\
+  		Non-Transitivity of Messages  & \nope   & \okay   & \okay   & \okay \\
   		\hline
-  		Asynchrone & \sortof & \nope & \okay & \okay 
+  		Asynchrone                    & \sortof & \nope   & \okay   & \okay 
     \end{tabular}
 \end{frame}
 
