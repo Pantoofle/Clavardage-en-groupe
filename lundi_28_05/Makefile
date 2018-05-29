@@ -19,7 +19,6 @@ all: $(PDF_RES)
 	pdflatex $(basename $<).tex
 	bibtex $(basename $<)
 	pdflatex $(basename $<).tex
-	pdflatex $(basename $<).tex
 
 %.tex: %.dot
 	dot2tex --figonly -ftikz $< > $@
